@@ -13,12 +13,12 @@ type Bin struct {
 	Container
 }
 
-func (b *Bin) GtkBin() *C.GtkBin {
-	return (*C.GtkBin)(b.GPointer())
+func (b *Bin) g() *C.GtkBin {
+	return (*C.GtkBin)(b.Pointer())
 }
 
 func (b *Bin) GetChild() *Widget {
 	w := new(Widget)
-	w.Set(glib.Pointer(C.gtk_bin_get_child(b.GtkBin())))
+	w.Set(glib.Pointer(C.gtk_bin_get_child(b.g())))
 	return w
 }

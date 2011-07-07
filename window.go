@@ -20,8 +20,8 @@ type Window struct {
 	Bin
 }
 
-func (w *Window) GtkWindow() *C.GtkWindow {
-	return (*C.GtkWindow)(w.GPointer())
+func (w *Window) g() *C.GtkWindow {
+	return (*C.GtkWindow)(w.Pointer())
 }
 
 // Returns C pointer
