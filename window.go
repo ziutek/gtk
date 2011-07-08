@@ -24,6 +24,10 @@ func (w *Window) g() *C.GtkWindow {
 	return (*C.GtkWindow)(w.Pointer())
 }
 
+func (w *Window) AsWindow() *Window {
+	return w
+}
+
 // Returns C pointer
 func NewWindow(t WindowType) *Window {
 	w := new(Window)

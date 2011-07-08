@@ -17,6 +17,10 @@ func (b *Button) g() *C.GtkButton {
 	return (*C.GtkButton)(b.Pointer())
 }
 
+func (b *Button) AsButton() *Button {
+	return b
+}
+
 // Returns C pointer
 func NewButton() *Button {
 	b := new(Button)

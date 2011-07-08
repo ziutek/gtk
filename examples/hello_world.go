@@ -23,7 +23,7 @@ func main() {
 	w.SetBorderWidth(10)
 	w.Show()
 
-	a := A{"Hello World"}
+	a := A{"Hello World!\n"}
 
 	b := gtk.NewButtonWithLabel("Hello World")
 	b.Connect("clicked", (*A).Hello, &a)
