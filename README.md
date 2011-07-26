@@ -1,4 +1,4 @@
-### Sample Go bindings for GTK.
+### Example Go bindings for GTK.
 
 This is only example of usage of the [glib package](https://github.com/ziutek/glib) to
 build bindings for GTK. It isn't suitable for writing real applications. If you
