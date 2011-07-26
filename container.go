@@ -10,7 +10,7 @@ type Container struct {
 }
 
 func (k *Container) g() *C.GtkContainer {
-	return (*C.GtkContainer)(k.Pointer())
+	return (*C.GtkContainer)(k.GetPtr())
 }
 
 func (k *Container) AsContainer() *Container {

@@ -14,7 +14,7 @@ type Bin struct {
 }
 
 func (b *Bin) g() *C.GtkBin {
-	return (*C.GtkBin)(b.Pointer())
+	return (*C.GtkBin)(b.GetPtr())
 }
 
 func (b *Bin) AsBin() *Bin {
@@ -23,6 +23,6 @@ func (b *Bin) AsBin() *Bin {
 
 func (b *Bin) GetChild() *Widget {
 	w := new(Widget)
-	w.Set(glib.Pointer(C.gtk_bin_get_child(b.g())))
+	w.SetPtr(glib.Pointer(C.gtk_bin_get_child(b.g())))
 	return w
 }

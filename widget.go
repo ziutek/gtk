@@ -14,7 +14,7 @@ type Widget struct {
 }
 
 func (w *Widget) g() *C.GtkWidget {
-	return (*C.GtkWidget)(w.Pointer())
+	return (*C.GtkWidget)(w.GetPtr())
 }
 
 func (w *Widget) AsWidget() *Widget {

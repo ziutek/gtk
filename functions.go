@@ -15,7 +15,16 @@ import "C"
 import (
 	"os"
 	"unsafe"
+	"github.com/ziutek/glib"
 )
+
+func v2g(v *glib.Value) *C.GValue {
+	return (*C.GValue)(unsafe.Pointer(v))
+}
+
+func g2v(v *C.GValue) *glib.Value {
+	return (*glib.Value)(unsafe.Pointer(v))
+}
 
 func init() {
 	alen := C.int(len(os.Args))
