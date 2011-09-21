@@ -7,6 +7,7 @@ import "C"
 
 import (
 	"github.com/ziutek/glib"
+	"github.com/ziutek/gdk"
 )
 
 type Widget struct {
@@ -43,4 +44,27 @@ func (w *Widget) Hide() {
 
 func (w *Widget) HideAll() {
 	C.gtk_widget_hide_all(w.g())
+}
+
+func (w *Widget) Realize() {
+	C.gtk_widget_realize(w.g())
+}
+
+func (w *Widget) GetWindow() *gdk.Window {
+	gw := new(gdk.Window)
+	gw.SetPtr(glib.Pointer(C.gtk_widget_get_window(w.g())))
+	//gw.SetPtr(glib.Pointer(w.g().window))
+	return gw
+}
+
+func (w *Widget) SetDoubleBuffered(double_buffered bool) {
+	var db C.gboolean
+	if double_buffered {
+		db = 1
+	}
+	C.gtk_widget_set_double_buffered(w.g(), db)
+}
+
+func (w *Widget) SetSizeRequest(width, height int) {
+	C.gtk_widget_set_size_request(w.g(), C.gint(width), C.gint(height))
 }

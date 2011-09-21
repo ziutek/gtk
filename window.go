@@ -28,6 +28,14 @@ func (w *Window) AsWindow() *Window {
 	return w
 }
 
+func (w *Window) SetTitle(title string) {
+	C.gtk_window_set_title(w.g(), (*C.gchar)(C.CString(title)))
+}
+
+func (w *Window) SetDefaultSize(width, height int) {
+	C.gtk_window_set_default_size(w.g(), C.gint(width), C.gint(height))
+}
+
 // Returns C pointer
 func NewWindow(t WindowType) *Window {
 	w := new(Window)
