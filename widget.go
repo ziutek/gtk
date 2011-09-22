@@ -68,3 +68,9 @@ func (w *Widget) SetDoubleBuffered(double_buffered bool) {
 func (w *Widget) SetSizeRequest(width, height int) {
 	C.gtk_widget_set_size_request(w.g(), C.gint(width), C.gint(height))
 }
+
+func (w *Widget) GetSettings() *Settings {
+	s := new(Settings)
+	s.SetPtr(glib.Pointer(C.gtk_widget_get_settings(w.g())))
+	return s
+}
